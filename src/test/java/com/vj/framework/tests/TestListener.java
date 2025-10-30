@@ -15,29 +15,14 @@ public class TestListener implements ITestListener {
         try { Files.createDirectories(p); } catch (IOException ignored) {}
         return p;
     }
-
-    @Override
-    public void onTestFailure(ITestResult result) {
-        WebDriver driver = DriverFactory.getDriver();
-        if (driver == null) return;
-
+    @Override public void onTestFailure(ITestResult r) {
+        WebDriver d = DriverFactory.getDriver();
+        if (d == null) return;
         String stamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
-        String base = result.getMethod().getMethodName() + "_" + stamp;
-
-        // Screenshot
-        try {
-            byte[] png = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-            Files.write(outDir().resolve(base + ".png"), png);
-        } catch (Exception ignored) {}
-
-        // HTML
-        try {
-            Files.writeString(outDir().resolve(base + ".html"), driver.getPageSource());
-        } catch (Exception ignored) {}
-
-        // URL
-        try {
-            Files.writeString(outDir().resolve(base + "_url.txt"), driver.getCurrentUrl());
-        } catch (Exception ignored) {}
+        String base = r.getMethod().getMethodName() + "_" + stamp;
+        try { Files.write(outDir().resolve(base + ".png"),
+                ((TakesScreenshot)d).getScreenshotAs(OutputType.BYTES)); } catch (Exception ignored) {}
+        try { Files.writeString(outDir().resolve(base + ".html"), d.getPageSource()); } catch (Exception ignored) {}
+        try { Files.writeString(outDir().resolve(base + "_url.txt"), d.getCurrentUrl()); } catch (Exception ignored) {}
     }
 }

@@ -1,3 +1,5 @@
+> Java + Selenium + TestNG mini framework built from scratch with Page Objects, suite runner, and screenshot-on-failure. Two flows automated (Login, Logout) against the OrangeHRM demo. Designed to be interview-ready and easy to extend.
+
 # OrangeHRM Automation (Java + Selenium + TestNG)
 
 **Stack:** Java 17, Selenium 4.26, TestNG  

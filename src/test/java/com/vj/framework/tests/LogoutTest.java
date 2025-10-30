@@ -15,11 +15,8 @@ public class LogoutTest extends BaseTest {
             .submit();
 
         Assert.assertTrue(new DashboardPage(driver).isAt(), "Should be on dashboard");
-
-        new HeaderBar(driver).logout();          // perform logout
-
-        // If we reached login page again, LoginPage constructor wait will pass
-        new LoginPage(driver);
-        Assert.assertTrue(true, "Returned to login after logout");
+        new HeaderBar(driver).logout();
+        new LoginPage(driver); // constructor waits for login screen again
+        Assert.assertTrue(true, "Returned to login screen after logout");
     }
 }
