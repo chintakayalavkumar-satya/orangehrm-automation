@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="OrangeHRM Suite" verbose="1" parallel="false">
+  <listeners>
+    <listener class-name="com.vj.framework.tests.TestListener"/>
+  </listeners>
+  <test name="Login + Logout">
+    <parameter name="baseUrl" value="https://opensource-demo.orangehrmlive.com/"/>
+    <classes>
+      <class name="com.vj.framework.tests.LoginTest"/>
+      <class name="com.vj.framework.tests.LogoutTest"/>
+    </classes>
+  </test>
+</suite>

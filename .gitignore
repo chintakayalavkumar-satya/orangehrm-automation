@@ -1,0 +1,11 @@
+target/
+test-output/
+*.log
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+bin/
+.DS_Store
+Thumbs.db
