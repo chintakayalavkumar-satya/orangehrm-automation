@@ -1,24 +1,35 @@
-
 name: Maven Tests
-
 on: [push, pull_request]
 
 jobs:
   test:
-    runs-on: ubuntu-latest
-    env:
-      CI: true
+    runs-on: windows-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Java
+      - name: Set up Java 17
         uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
+          distribution: temurin
           java-version: '17'
-          cache: 'maven'
 
-      - name: Run tests (headless Firefox)
-        run: mvn -q -e -Dtest=LoginTest,LogoutTest clean test
+      - name: Cache Maven repo
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: m2-${{ runner.os }}-${{ hashFiles('**/pom.xml') }}
+          restore-keys: m2-${{ runner.os }}-
+
+      - name: Run TestNG suite
+        run: mvn -B -U clean test
+
+      - name: Generate Allure report
+        run: mvn -q allure:report
+
+      - name: Upload Allure HTML report
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: target/site/allure-maven-plugin
