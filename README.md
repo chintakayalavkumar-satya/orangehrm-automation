@@ -1,5 +1,9 @@
 ![Maven Tests](https://github.com/chintakayalavkumar-satya/orangehrm-automation/actions/workflows/maven-tests.yml/badge.svg)
 
+# OrangeHRM Automation
+
+![Maven Tests](https://github.com/chintakayalavkumar-satya/orangehrm-automation/actions/workflows/maven-tests.yml/badge.svg)
+
 > Java + Selenium + TestNG mini framework built from scratch with Page Objects, suite runner, and screenshot-on-failure. Two flows automated (Login, Logout) against the OrangeHRM demo. Designed to be interview-ready and easy to extend.
 
 # OrangeHRM Automation (Java + Selenium + TestNG)
