@@ -1,3 +1,28 @@
+# OrangeHRM Automation 🚀
+
+[![Maven Tests](https://github.com/chintakayalavkumar-satya/orangehrm-automation/actions/workflows/maven-tests.yml/badge.svg)](https://github.com/chintakayalavkumar-satya/orangehrm-automation/actions/workflows/maven-tests.yml)
+
+Automated testing framework for [OrangeHRM](https://opensource-demo.orangehrmlive.com/) built using:
+- **Selenium WebDriver**
+- **TestNG**
+- **Java 17**
+- **Maven**
+- **Allure Reports**
+- **GitHub Actions CI/CD**
+
+### 📊 Reports
+- Local HTML report generated at:  
+  `target/site/allure-maven-plugin/index.html`
+- GitHub Actions uploads Allure reports automatically in workflow artifacts.
+
+### ⚙️ Commands
+```bash
+# Run all tests
+mvn clean test
+
+# Generate local Allure report
+mvn allure:report
+
 ![Maven Tests](https://github.com/chintakayalavkumar-satya/orangehrm-automation/actions/workflows/maven-tests.yml/badge.svg)
 
 # OrangeHRM Automation
